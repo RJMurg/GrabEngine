@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Trains" ALTER COLUMN "originTime" SET DATA TYPE TEXT,
+ALTER COLUMN "destinationTime" SET DATA TYPE TEXT;

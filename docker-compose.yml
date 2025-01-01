@@ -1,0 +1,29 @@
+services:
+  grabengine:
+    build: .
+    container_name: grabengine
+    environment:
+      DATABASE_URL: postgresql://johndoe:randompassword@db:5432/mydb?schema=public
+    depends_on:
+      - db
+    networks:
+      - traefik-external
+
+  db:
+    image: postgres:13
+    container_name: grabengine-db
+    environment:
+      POSTGRES_USER: johndoe
+      POSTGRES_PASSWORD: randompassword
+      POSTGRES_DB: prismadb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - traefik-external
+
+networks:
+  traefik-external:
+    external: true
+
+volumes:
+  postgres-data:
