@@ -8,12 +8,12 @@ done
 echo "DB is ready."
 
 echo "Generating Prisma Client"
-bunx prisma generate
+npx prisma generate
 
 # Run Prisma migrations
 echo "Running Prisma migrations..."
-bunx prisma migrate deploy
+npx prisma migrate deploy
 
 # Start the server
 echo "Starting server..."
-bun start
+npx tsx index.ts
