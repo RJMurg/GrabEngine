@@ -6,7 +6,11 @@ let maxTrainsThisHour = 0;
 let maxTrainsThisDay = 0;
 let minutes = 0;
 
+console.log(`[${new Date()}] First Pull`);
+
 getTrains();
+
+console.log(`[${new Date()}] Train scraper started`);
 
 setInterval(async () => {
     getTrains();
